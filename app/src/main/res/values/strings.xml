@@ -1,0 +1,59 @@
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Title for the application. [CHAR LIMIT=12] -->
+    <string name="app_name">Miwok</string>
+
+    <!-- Category name for phrases [CHAR LIMIT=20] -->
+    <string name="category_phrases">Phrases</string>
+
+    <!-- Category name for the vocabulary words for colors [CHAR LIMIT=20] -->
+    <string name="category_colors">Colors</string>
+
+    <!-- Category name for the vocabulary words for numbers [CHAR LIMIT=20] -->
+    <string name="category_numbers">Numbers</string>
+
+    <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
+    <string name="category_family">Family Members</string>
+    <string name="flipe_Layout">Flipe Layout</string>
+    <string name="one">One</string>
+    <string name="notilu">Notilu</string>
+
+    <string-array name="number_library">
+        <item>0.Zero</item>
+        <item>1.One</item>
+        <item>2.Two</item>
+        <item>3.Three</item>
+        <item>4.Four</item>
+        <item>5.Five</item>
+        <item>6.Six</item>
+        <item>7.Seven</item>
+        <item>8.Eight</item>
+        <item>9.Nine</item>
+        <item>10.Ten</item>
+        <item>11.Twelve</item>
+        <item>12.Twotin</item>
+        <item>13.Thirdtien</item>
+        <item>14.Fourthin</item>
+        <item>15.Fivethin</item>
+        <item>16.Sixthin</item>
+        <item>17.Seventhin</item>
+        <item>18.Eightin</item>
+        <item>19.Ninethin</item>
+        <item>20.Twelve</item>
+    </string-array>
+
+</resources>
+
