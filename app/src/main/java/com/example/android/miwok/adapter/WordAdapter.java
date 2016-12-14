@@ -45,11 +45,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView miwokWord = (TextView) listItemView.findViewById(R.id.miwok_library);
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_list);
 
-        if (mActivityCheck == Helper.ACTIVITY_PHARASES){
-            imageView.setVisibility(View.GONE);
-        }
 
-        switch (mActivityCheck){
+        switch (mActivityCheck){ // this is check for relevaan dummy image, and gone for pharases
             case Helper.ACTIVITY_NUMBERS:
                 imageView.setImageResource(R.drawable.ic_format_list_numbered_black_36dp);
                 break;
@@ -58,6 +55,10 @@ public class WordAdapter extends ArrayAdapter<Word> {
                 break;
             case Helper.ACTIVITY_COLORS:
                 imageView.setImageResource(android.R.drawable.btn_star_big_off);
+                break;
+            case Helper.ACTIVITY_PHARASES:
+                imageView.setVisibility(View.GONE);
+                break;
         }
 
         defaultWord.setText(wordData.getmDefaultWord());
@@ -65,4 +66,5 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         return listItemView;
     }
+
 }

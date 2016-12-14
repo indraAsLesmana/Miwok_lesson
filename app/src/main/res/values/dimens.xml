@@ -22,5 +22,5 @@
     <dimen name="item_padding">2dp</dimen>
     <dimen name="list_item_pad">16dp</dimen>
     <dimen name="image_dimen">50dp</dimen>
-    <dimen name="margin_image_tolist">10dp</dimen>
+    <dimen name="margin_image_tolist">16dp</dimen>
 </resources>
