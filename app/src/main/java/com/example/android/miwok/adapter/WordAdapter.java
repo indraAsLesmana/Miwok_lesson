@@ -49,6 +49,17 @@ public class WordAdapter extends ArrayAdapter<Word> {
             imageView.setVisibility(View.GONE);
         }
 
+        switch (mActivityCheck){
+            case Helper.ACTIVITY_NUMBERS:
+                imageView.setImageResource(R.drawable.ic_format_list_numbered_black_36dp);
+                break;
+            case Helper.ACTIVITY_FAMILY_MEMBERS:
+                imageView.setImageResource(R.drawable.ic_account_balance_black_36dp);
+                break;
+            case Helper.ACTIVITY_COLORS:
+                imageView.setImageResource(android.R.drawable.btn_star_big_off);
+        }
+
         defaultWord.setText(wordData.getmDefaultWord());
         miwokWord.setText(wordData.getmMiwokWord());
 
