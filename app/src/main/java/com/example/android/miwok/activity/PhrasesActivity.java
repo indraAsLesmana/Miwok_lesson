@@ -17,19 +17,14 @@ package com.example.android.miwok.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.android.miwok.R;
 import com.example.android.miwok.adapter.WordAdapter;
-import com.example.android.miwok.helper.ActivityConstants;
+import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PhrasesActivity extends AppCompatActivity {
 
@@ -54,7 +49,7 @@ public class PhrasesActivity extends AppCompatActivity {
         theData.add(new Word("Let’s go.", "yoowutis"));
         theData.add(new Word("Come here.", "әnni'nem"));
 
-        WordAdapter adapter = new WordAdapter(this, theData, ActivityConstants.ACTIVITY_4);
+        WordAdapter adapter = new WordAdapter(this, theData, Helper.ACTIVITY_PHARASES);
 
         listView.setAdapter(adapter);
     }

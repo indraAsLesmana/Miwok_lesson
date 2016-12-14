@@ -24,7 +24,6 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.example.android.miwok.R;
-import com.example.android.miwok.helper.ActivityConstants;
 
 import java.util.ArrayList;
 

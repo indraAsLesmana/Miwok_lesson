@@ -10,5 +10,11 @@ import java.util.ArrayList;
  */
 
 public class Helper {
-
+    /**
+     * this for identify activty caller
+     * */
+    public static final int ACTIVITY_NUMBERS = 1001;
+    public static final int ACTIVITY_FAMILY_MEMBERS = 1002;
+    public static final int ACTIVITY_COLORS = 1003;
+    public static final int ACTIVITY_PHARASES = 1004;
 }

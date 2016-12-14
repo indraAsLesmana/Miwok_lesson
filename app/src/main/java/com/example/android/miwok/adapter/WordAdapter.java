@@ -12,7 +12,7 @@ import com.example.android.miwok.R;
 
 import java.util.ArrayList;
 
-import com.example.android.miwok.helper.ActivityConstants;
+import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
 /**
@@ -34,7 +34,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         View listItemView = convertView;
         if(listItemView == null) {
-            if(activityCheck != ActivityConstants.ACTIVITY_4)
+            if(activityCheck != Helper.ACTIVITY_PHARASES)
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
             else {
