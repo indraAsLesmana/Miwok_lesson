@@ -12,6 +12,7 @@ import com.example.android.miwok.R;
 
 import java.util.ArrayList;
 
+import com.example.android.miwok.helper.ActivityConstants;
 import com.example.android.miwok.model.Word;
 
 /**
@@ -19,10 +20,13 @@ import com.example.android.miwok.model.Word;
  */
 
 public class WordAdapter extends ArrayAdapter<Word> {
+    private int activityCheck;
 
-    public WordAdapter(Context context, ArrayList<Word> words) {
+    public WordAdapter(Context context, ArrayList<Word> words, int activityCaller) {
         super(context, 0, words);
+        activityCheck = activityCaller;
     }
+
 
     @NonNull
     @Override
@@ -30,8 +34,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         View listItemView = convertView;
         if(listItemView == null) {
+            if(activityCheck != ActivityConstants.ACTIVITY_4)
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
+            else {
+                listItemView = LayoutInflater.from(getContext()).inflate(
+                        R.layout.list_item_withoutimage, parent, false);
+            }
         }
 
         Word wordData = getItem(position);

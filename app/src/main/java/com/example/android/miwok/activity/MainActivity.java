@@ -24,6 +24,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.example.android.miwok.R;
+import com.example.android.miwok.helper.ActivityConstants;
 
 import java.util.ArrayList;
 
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
-
                 startActivity(numbersIntent);
             }
         });
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
-
                 startActivity(familyIntent);
             }
         });
@@ -66,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
-
                 startActivity(colorsIntent);
             }
         });
@@ -83,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
                 // Start the new activity
                 startActivity(phrasesIntent);
-                arralistMethod2();
             }
         });
     }

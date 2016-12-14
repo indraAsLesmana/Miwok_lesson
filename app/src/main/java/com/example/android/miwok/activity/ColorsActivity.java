@@ -21,6 +21,7 @@ import android.widget.ListView;
 
 import com.example.android.miwok.R;
 import com.example.android.miwok.adapter.WordAdapter;
+import com.example.android.miwok.helper.ActivityConstants;
 import com.example.android.miwok.model.Word;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class ColorsActivity extends AppCompatActivity {
         theData.add(new Word("dusty yellow", "ṭopiisә"));
         theData.add(new Word("mustard yellow", "chiwiiṭә"));
 
-        WordAdapter adapter = new WordAdapter(this, theData);
+        WordAdapter adapter = new WordAdapter(this, theData, ActivityConstants.ACTIVITY_3);
 
         listView.setAdapter(adapter);
 
