@@ -13,25 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.android.miwok;
+package com.example.android.miwok.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Switch;
 
 import java.util.ArrayList;
 
-import adapter.WordAdapter;
-import model.Word;
+import com.example.android.miwok.R;
+import com.example.android.miwok.adapter.WordAdapter;
+import com.example.android.miwok.model.Word;
 
 public class NumbersActivity extends AppCompatActivity {
 
     ListView listView;
-    GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +61,6 @@ public class NumbersActivity extends AppCompatActivity {
         theData.add(new Word("nine", "wo'e"));
         theData.add(new Word("ten", "na'aacha"));
 
-//        ArrayAdapter<Word> adapter = new ArrayAdapter<Word>(this, R.layout.list_item, theData);
         WordAdapter adapter = new WordAdapter(this, theData);
 
         listView.setAdapter(adapter);

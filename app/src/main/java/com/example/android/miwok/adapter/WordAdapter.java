@@ -1,4 +1,4 @@
-package adapter;
+package com.example.android.miwok.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,7 +12,7 @@ import com.example.android.miwok.R;
 
 import java.util.ArrayList;
 
-import model.Word;
+import com.example.android.miwok.model.Word;
 
 /**
  * Created by indraaguslesmana on 12/13/16.

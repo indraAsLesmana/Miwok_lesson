@@ -55,5 +55,18 @@
         <item>20.Twelve</item>
     </string-array>
 
+    <string-array name="family_member">
+        <item>father|әpә</item>
+        <item>mother|әṭa</item>
+        <item>son|angsi</item>
+        <item>daughter|tune</item>
+        <item>older brother|taachi</item>
+        <item>younger brother|chalitti</item>
+        <item>older sister|teṭe</item>
+        <item>younger sister|kolliti</item>
+        <item>grandmother|ama</item>
+        <item>grandfather|paapa</item>
+    </string-array>
+
 </resources>
 
