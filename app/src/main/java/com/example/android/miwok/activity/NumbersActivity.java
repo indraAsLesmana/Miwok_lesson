@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 import com.example.android.miwok.R;
 import com.example.android.miwok.adapter.WordAdapter;
-import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
 public class NumbersActivity extends AppCompatActivity {
@@ -61,7 +60,7 @@ public class NumbersActivity extends AppCompatActivity {
         theData.add(new Word("nine", "wo'e", R.drawable.number_nine));
         theData.add(new Word("ten", "na'aacha", R.drawable.number_ten));
 
-        WordAdapter adapter = new WordAdapter(this, theData, Helper.ACTIVITY_NUMBERS);
+        WordAdapter adapter = new WordAdapter(this, theData);
 
         listView.setAdapter(adapter);
     }

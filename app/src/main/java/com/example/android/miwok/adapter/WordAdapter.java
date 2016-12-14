@@ -13,8 +13,6 @@ import com.example.android.miwok.R;
 
 import java.util.ArrayList;
 
-import com.example.android.miwok.activity.PhrasesActivity;
-import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
 /**
@@ -22,12 +20,9 @@ import com.example.android.miwok.model.Word;
  */
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    private int mActivityCheck;
 
-    public WordAdapter(Context context, ArrayList<Word> words, int activityCaller) {
+    public WordAdapter(Context context, ArrayList<Word> words) {
         super(context, 0, words);
-        mActivityCheck = activityCaller;
-
         /**
          * another way to check ho is caller
          * */
@@ -54,11 +49,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_list);
 
 
-        if (wordData.getImage() == 0) {
+        if (wordData.getmImageResourceId() == 0) {
             imageView.setVisibility(View.GONE);
         } else {
             imageView.setVisibility(View.VISIBLE);
-            imageView.setImageResource(wordData.getImage());
+            imageView.setImageResource(wordData.getmImageResourceId());
         }
 
 

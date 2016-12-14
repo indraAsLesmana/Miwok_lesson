@@ -21,7 +21,6 @@ import android.widget.ListView;
 
 import com.example.android.miwok.R;
 import com.example.android.miwok.adapter.WordAdapter;
-import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class PhrasesActivity extends AppCompatActivity {
         theData.add(new Word("Let’s go.", "yoowutis"));
         theData.add(new Word("Come here.", "әnni'nem"));
 
-        WordAdapter adapter = new WordAdapter(this, theData, Helper.ACTIVITY_PHARASES);
+        WordAdapter adapter = new WordAdapter(this, theData);
 
         listView.setAdapter(adapter);
     }

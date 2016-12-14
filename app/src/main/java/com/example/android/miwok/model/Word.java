@@ -1,7 +1,5 @@
 package com.example.android.miwok.model;
 
-import android.graphics.drawable.Drawable;
-
 /**
  * Created by indraaguslesmana on 12/13/16.
  */
@@ -9,12 +7,12 @@ import android.graphics.drawable.Drawable;
 public class Word {
     private String mDefaultWord;
     private String mMiwokWord;
-    private int image;
+    private int mImageResourceId;
 
-    public Word(String mDefaultWord, String mMiwokWord, int image) {
+    public Word(String mDefaultWord, String mMiwokWord, int mImageResourceId) {
         this.mDefaultWord = mDefaultWord;
         this.mMiwokWord = mMiwokWord;
-        this.image = image;
+        this.mImageResourceId = mImageResourceId;
     }
 
     public Word(String mDefaultWord, String mMiwokWord) {
@@ -30,7 +28,7 @@ public class Word {
         return mMiwokWord;
     }
 
-    public int getImage() {
-        return image;
+    public int getmImageResourceId() {
+        return mImageResourceId;
     }
 }
