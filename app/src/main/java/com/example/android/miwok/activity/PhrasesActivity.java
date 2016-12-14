@@ -37,8 +37,8 @@ public class PhrasesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phrases);
-        listView = (ListView) findViewById(R.id.phrases_datalist);
+        setContentView(R.layout.activity_list);
+        listView = (ListView) findViewById(R.id.list_data);
 
         ArrayList<Word> theData = new ArrayList<>();
 

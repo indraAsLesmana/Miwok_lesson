@@ -32,8 +32,8 @@ public class FamilyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_family);
-        listView = (ListView) findViewById(R.id.family_listview);
+        setContentView(R.layout.activity_list);
+        listView = (ListView) findViewById(R.id.list_data);
         /** library ---
          * 1father, әpә
          * 2 mother,әṭa
