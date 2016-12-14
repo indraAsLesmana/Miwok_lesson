@@ -20,7 +20,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="list_item_padding">16dp</dimen>
     <dimen name="item_padding">2dp</dimen>
-    <dimen name="list_item_pad">16dp</dimen>
+    <dimen name="list_item_pad">6dp</dimen>
     <dimen name="image_dimen">48dp</dimen>
     <dimen name="margin_image_tolist">16dp</dimen>
 </resources>

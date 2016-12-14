@@ -61,7 +61,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         LinearLayout mBackground = (LinearLayout) listItemView.findViewById(R.id.background_list);
 
 
-        if (wordData.getmImageResourceId() == 0) {
+        if (!wordData.hasImage()) {
             imageView.setVisibility(View.GONE);
         } else {
             imageView.setVisibility(View.VISIBLE);

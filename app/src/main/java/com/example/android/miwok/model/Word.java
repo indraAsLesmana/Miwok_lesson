@@ -7,8 +7,8 @@ package com.example.android.miwok.model;
 public class Word {
     private String mDefaultWord;
     private String mMiwokWord;
-    private int mImageResourceId;
-
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+    private static final int NO_IMAGE_PROVIDED = -1;
     /**
      * this is overloading constructor add new imageResourceid
      * @param mImageResourceId is for imageResourceId from drawable content
@@ -39,5 +39,9 @@ public class Word {
 
     public int getmImageResourceId() {
         return mImageResourceId;
+    }
+
+    public boolean hasImage (){
+        return mImageResourceId != NO_IMAGE_PROVIDED;
     }
 }
