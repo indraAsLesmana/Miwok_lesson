@@ -13,6 +13,7 @@ import com.example.android.miwok.R;
 
 import java.util.ArrayList;
 
+import com.example.android.miwok.activity.PhrasesActivity;
 import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
@@ -26,6 +27,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
     public WordAdapter(Context context, ArrayList<Word> words, int activityCaller) {
         super(context, 0, words);
         mActivityCheck = activityCaller;
+
+        /**
+         * another way to check ho is caller
+         * */
+        /*if(context instanceof PhrasesActivity){
+            mActivityCheck = Helper.ACTIVITY_PHARASES;
+        }*/
     }
 
 
@@ -46,20 +54,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_list);
 
 
-        switch (mActivityCheck){ // this is check for relevaan dummy image, and gone for pharases
-            case Helper.ACTIVITY_NUMBERS:
-                imageView.setImageResource(R.drawable.ic_format_list_numbered_black_36dp);
-                break;
-            case Helper.ACTIVITY_FAMILY_MEMBERS:
-                imageView.setImageResource(R.drawable.ic_account_balance_black_36dp);
-                break;
-            case Helper.ACTIVITY_COLORS:
-                imageView.setImageResource(android.R.drawable.btn_star_big_off);
-                break;
-            case Helper.ACTIVITY_PHARASES:
-                imageView.setVisibility(View.GONE);
-                break;
+        if (wordData.getImage() == 0) {
+            imageView.setVisibility(View.GONE);
+        } else {
+            imageView.setVisibility(View.VISIBLE);
+            imageView.setImageResource(wordData.getImage());
         }
+
 
         defaultWord.setText(wordData.getmDefaultWord());
         miwokWord.setText(wordData.getmMiwokWord());

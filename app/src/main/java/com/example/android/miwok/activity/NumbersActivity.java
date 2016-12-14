@@ -50,16 +50,16 @@ public class NumbersActivity extends AppCompatActivity {
          9 nine wo’e
          10 ten na’aacha
          * */
-        theData.add(new Word("one", "lutti"));
-        theData.add(new Word("two", "otiko"));
-        theData.add(new Word("three", "tolookosu"));
-        theData.add(new Word("four", "oyyisa"));
-        theData.add(new Word("five", "massoka"));
-        theData.add(new Word("six", "temmoka"));
-        theData.add(new Word("seven", "kenekaku"));
-        theData.add(new Word("eight", "kawinta"));
-        theData.add(new Word("nine", "wo'e"));
-        theData.add(new Word("ten", "na'aacha"));
+        theData.add(new Word("one", "lutti", R.drawable.number_one));
+        theData.add(new Word("two", "otiko", R.drawable.number_two));
+        theData.add(new Word("three", "tolookosu", R.drawable.number_three));
+        theData.add(new Word("four", "oyyisa", R.drawable.number_four));
+        theData.add(new Word("five", "massoka", R.drawable.number_five));
+        theData.add(new Word("six", "temmoka", R.drawable.number_six));
+        theData.add(new Word("seven", "kenekaku", R.drawable.number_seven));
+        theData.add(new Word("eight", "kawinta", R.drawable.number_eight));
+        theData.add(new Word("nine", "wo'e", R.drawable.number_nine));
+        theData.add(new Word("ten", "na'aacha", R.drawable.number_ten));
 
         WordAdapter adapter = new WordAdapter(this, theData, Helper.ACTIVITY_NUMBERS);
 

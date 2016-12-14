@@ -52,13 +52,27 @@ public class FamilyActivity extends AppCompatActivity {
          * this the order way, with split up data. if data source from xml R.array
          *
          * */
+
+        int[] drawableData = {
+                R.drawable.family_father,
+                R.drawable.family_mother,
+                R.drawable.family_son,
+                R.drawable.family_daughter,
+                R.drawable.family_older_brother,
+                R.drawable.family_younger_brother,
+                R.drawable.family_older_sister,
+                R.drawable.family_younger_sister,
+                R.drawable.family_grandmother,
+                R.drawable.family_grandfather
+        };
+
         ArrayList<Word> wordLibrary = new ArrayList<>();
         String [] familymemberData = getResources().getStringArray(R.array.family_member);
 
         for (int i = 0; i < familymemberData.length; i++) {
             String dataSplit = familymemberData[i];
             String [] splitResult = dataSplit.split("\\|", 2);
-            wordLibrary.add(new Word(splitResult[0], splitResult[1]));
+            wordLibrary.add(new Word(splitResult[0], splitResult[1], drawableData[i]));
         }
 
         WordAdapter adapter = new WordAdapter(this, wordLibrary, Helper.ACTIVITY_FAMILY_MEMBERS);

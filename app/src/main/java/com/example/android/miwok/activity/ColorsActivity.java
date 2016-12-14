@@ -37,14 +37,14 @@ public class ColorsActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.list_data);
         ArrayList<Word> theData = new ArrayList<>();
 
-        theData.add(new Word("red", "weṭeṭṭi"));
-        theData.add(new Word("green", "chokokki"));
-        theData.add(new Word("brown", "ṭakaakki"));
-        theData.add(new Word("gray", "ṭopoppi"));
-        theData.add(new Word("black", "kululli"));
-        theData.add(new Word("white", "kelelli"));
-        theData.add(new Word("dusty yellow", "ṭopiisә"));
-        theData.add(new Word("mustard yellow", "chiwiiṭә"));
+        theData.add(new Word("red", "weṭeṭṭi", R.drawable.color_red));
+        theData.add(new Word("green", "chokokki", R.drawable.color_green));
+        theData.add(new Word("brown", "ṭakaakki", R.drawable.color_brown));
+        theData.add(new Word("gray", "ṭopoppi", R.drawable.color_gray));
+        theData.add(new Word("black", "kululli", R.drawable.color_black));
+        theData.add(new Word("white", "kelelli", R.drawable.color_white));
+        theData.add(new Word("dusty yellow", "ṭopiisә", R.drawable.color_dusty_yellow));
+        theData.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow));
 
         WordAdapter adapter = new WordAdapter(this, theData, Helper.ACTIVITY_COLORS);
 
