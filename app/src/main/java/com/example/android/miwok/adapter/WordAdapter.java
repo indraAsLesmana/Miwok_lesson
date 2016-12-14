@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.miwok.R;
@@ -20,11 +21,11 @@ import com.example.android.miwok.model.Word;
  */
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    private int activityCheck;
+    private int mActivityCheck;
 
     public WordAdapter(Context context, ArrayList<Word> words, int activityCaller) {
         super(context, 0, words);
-        activityCheck = activityCaller;
+        mActivityCheck = activityCaller;
     }
 
 
@@ -34,19 +35,19 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         View listItemView = convertView;
         if(listItemView == null) {
-            if(activityCheck != Helper.ACTIVITY_PHARASES)
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
-            else {
-                listItemView = LayoutInflater.from(getContext()).inflate(
-                        R.layout.list_item_withoutimage, parent, false);
-            }
         }
 
         Word wordData = getItem(position);
 
         TextView defaultWord = (TextView) listItemView.findViewById(R.id.english_library);
         TextView miwokWord = (TextView) listItemView.findViewById(R.id.miwok_library);
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_list);
+
+        if (mActivityCheck == Helper.ACTIVITY_PHARASES){
+            imageView.setVisibility(View.GONE);
+        }
 
         defaultWord.setText(wordData.getmDefaultWord());
         miwokWord.setText(wordData.getmMiwokWord());
