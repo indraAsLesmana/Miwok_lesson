@@ -88,32 +88,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         defaultWord.setText(wordData.getmDefaultWord());
         miwokWord.setText(wordData.getmMiwokWord());
 
-        /**
-         * @param NO_AUDIO is chek if audio return 0, there is no audio
-         * */
-        // TODO: how to store audio file not in one variabel, but in one object view
-        /*if(wordData.getmAudioFile() != NO_AUDIO){
-            mediaPlayer =  MediaPlayer.create(getContext(), wordData.getmAudioFile());
-        }
-
-        mBackground.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (wordData.getmAudioFile() == NO_AUDIO) {
-                    Toast.makeText(getContext(), "There's no Audio file", Toast.LENGTH_SHORT).show();
-                } else if (!mediaPlayer.isPlaying()) { //isPlaying() is MediaPlayer method for check is audio played ?
-                    mediaPlayer.start();
-                    playButton.setImageResource(android.R.drawable.ic_media_pause);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mediaPlayer.pause();
-                            playButton.setImageResource(android.R.drawable.ic_media_play);
-                        }
-                    }, mediaPlayer.getDuration() + 50);
-                }
-            }
-        });*/
 
         return listItemView;
     }

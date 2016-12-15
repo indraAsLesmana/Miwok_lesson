@@ -9,7 +9,7 @@ public class Word {
     private String mDefaultWord;
     private String mMiwokWord;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
-    private static final int NO_IMAGE_PROVIDED = -1;
+    private static final int NO_IMAGE_PROVIDED = 0;
     private int mAudioFile;
     /**
      * this is overloading constructor add new imageResourceid
