@@ -26,7 +26,6 @@ import com.example.android.miwok.model.Word;
 public class WordAdapter extends ArrayAdapter<Word> {
     private int mColorBackground;
     private MediaPlayer mediaPlayer;
-    private boolean isOnPlay = false;
     private static final int NO_AUDIO = 0;
 
     public WordAdapter(Context context, ArrayList<Word> words, int color) {
@@ -93,13 +92,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
             public void onClick(View view) {
                 if(wordData.getmAudioFile() == NO_AUDIO){
                     Toast.makeText(getContext(), "There's no Audio file", Toast.LENGTH_SHORT).show();
-                }else if (!isOnPlay){
+                }else if (!mediaPlayer.isPlaying()){ //isPlaying() is MediaPlayer method for check is audio played ?
                     mediaPlayer.start();
-                    isOnPlay = true;
                     playButton.setImageResource(android.R.drawable.ic_media_pause);
                 }else {
                     mediaPlayer.pause();
-                    isOnPlay = false;
                     playButton.setImageResource(android.R.drawable.ic_media_play);
                 }
             }
