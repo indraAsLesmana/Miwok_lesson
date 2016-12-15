@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:minHeight="@dimen/list_hight">
 
     <ImageView
         android:id="@+id/image_list"
         style="@style/image_style"
-        android:src="@android:drawable/btn_star_big_on"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/list_hight"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/background_list"
         android:gravity="center|left"
