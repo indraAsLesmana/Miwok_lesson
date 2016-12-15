@@ -27,6 +27,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
     private int mColorBackground;
     private MediaPlayer mediaPlayer;
     private static final int NO_AUDIO = 0;
+    private Word wordData;
+    private TextView miwokWord;
+
+    private TextView defaultWord;
+    private ImageView imageView;
+    private LinearLayout mBackground;
+    private RelativeLayout playButton_layout;
 
     public WordAdapter(Context context, ArrayList<Word> words, int color) {
         super(context, 0, words);
@@ -50,14 +57,14 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     R.layout.list_item, parent, false);
         }
 
-        final Word wordData = getItem(position);
+        wordData = getItem(position);
 
-        TextView defaultWord = (TextView) listItemView.findViewById(R.id.english_library);
-        TextView miwokWord = (TextView) listItemView.findViewById(R.id.miwok_library);
-        ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_list);
-        LinearLayout mBackground = (LinearLayout) listItemView.findViewById(R.id.background_list);
+        defaultWord = (TextView) listItemView.findViewById(R.id.english_library);
+        miwokWord = (TextView) listItemView.findViewById(R.id.miwok_library);
+        imageView = (ImageView) listItemView.findViewById(R.id.image_list);
+        mBackground = (LinearLayout) listItemView.findViewById(R.id.background_list);
         final ImageView playButton = (ImageView) listItemView.findViewById(R.id.play_button);
-        RelativeLayout playButton_layout = (RelativeLayout) listItemView.findViewById(R.id.play_button_layout);
+        playButton_layout = (RelativeLayout) listItemView.findViewById(R.id.play_button_layout);
 
 
 
@@ -90,12 +97,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(wordData.getmAudioFile() == NO_AUDIO){
+                if (wordData.getmAudioFile() == NO_AUDIO) {
                     Toast.makeText(getContext(), "There's no Audio file", Toast.LENGTH_SHORT).show();
-                }else if (!mediaPlayer.isPlaying()){ //isPlaying() is MediaPlayer method for check is audio played ?
+                } else if (!mediaPlayer.isPlaying()) { //isPlaying() is MediaPlayer method for check is audio played ?
                     mediaPlayer.start();
                     playButton.setImageResource(android.R.drawable.ic_media_pause);
-                }else {
+                } else {
                     mediaPlayer.pause();
                     playButton.setImageResource(android.R.drawable.ic_media_play);
                 }

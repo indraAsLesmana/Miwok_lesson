@@ -64,6 +64,18 @@ public class FamilyActivity extends AppCompatActivity {
                 R.drawable.family_grandmother,
                 R.drawable.family_grandfather
         };
+        int[] soundData = {
+                R.raw.family_father,
+                R.raw.family_mother,
+                R.raw.family_son,
+                R.raw.family_daughter,
+                R.raw.family_older_brother,
+                R.raw.family_younger_brother,
+                R.raw.family_older_sister,
+                R.raw.family_younger_sister,
+                R.raw.family_grandmother,
+                R.raw.family_grandfather
+        };
 
         ArrayList<Word> wordLibrary = new ArrayList<>();
         String [] familymemberData = getResources().getStringArray(R.array.family_member);
@@ -71,7 +83,7 @@ public class FamilyActivity extends AppCompatActivity {
         for (int i = 0; i < familymemberData.length; i++) {
             String dataSplit = familymemberData[i];
             String [] splitResult = dataSplit.split("\\|", 2);
-            wordLibrary.add(new Word(splitResult[0], splitResult[1], drawableData[i]));
+            wordLibrary.add(new Word(splitResult[0], splitResult[1], drawableData[i], soundData[i]));
         }
 
         WordAdapter adapter = new WordAdapter(this, wordLibrary, R.color.category_family);

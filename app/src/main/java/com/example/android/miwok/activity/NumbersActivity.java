@@ -49,16 +49,16 @@ public class NumbersActivity extends AppCompatActivity {
          9 nine wo’e
          10 ten na’aacha
          * */
-        theData.add(new Word("one", "lutti", R.drawable.number_one, R.raw.ringtone));
-        theData.add(new Word("two", "otiko", R.drawable.number_two));
-        theData.add(new Word("three", "tolookosu", R.drawable.number_three));
-        theData.add(new Word("four", "oyyisa", R.drawable.number_four));
-        theData.add(new Word("five", "massoka", R.drawable.number_five));
-        theData.add(new Word("six", "temmoka", R.drawable.number_six));
-        theData.add(new Word("seven", "kenekaku", R.drawable.number_seven));
-        theData.add(new Word("eight", "kawinta", R.drawable.number_eight));
-        theData.add(new Word("nine", "wo'e", R.drawable.number_nine));
-        theData.add(new Word("ten", "na'aacha", R.drawable.number_ten));
+        theData.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
+        theData.add(new Word("two", "otiko", R.drawable.number_two, R.raw.number_two));
+        theData.add(new Word("three", "tolookosu", R.drawable.number_three, R.raw.number_three));
+        theData.add(new Word("four", "oyyisa", R.drawable.number_four, R.raw.number_four));
+        theData.add(new Word("five", "massoka", R.drawable.number_five, R.raw.number_five));
+        theData.add(new Word("six", "temmoka", R.drawable.number_six, R.raw.number_six));
+        theData.add(new Word("seven", "kenekaku", R.drawable.number_seven, R.raw.number_seven));
+        theData.add(new Word("eight", "kawinta", R.drawable.number_eight, R.raw.number_eight));
+        theData.add(new Word("nine", "wo'e", R.drawable.number_nine, R.raw.number_nine));
+        theData.add(new Word("ten", "na'aacha", R.drawable.number_ten, R.raw.number_ten));
 
         WordAdapter adapter = new WordAdapter(this, theData, R.color.category_numbers);
 
