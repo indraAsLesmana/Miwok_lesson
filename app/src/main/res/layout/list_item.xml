@@ -7,17 +7,17 @@
 
     <ImageView
         android:id="@+id/image_list"
-        android:layout_width="@dimen/image_dimen"
-        android:layout_height="@dimen/image_dimen"
-        android:layout_marginRight="@dimen/margin_image_tolist"
+        style="@style/image_style"
         android:src="@android:drawable/btn_star_big_on"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/list_hight"
         android:orientation="vertical"
-        android:id="@+id/background_list">
+        android:id="@+id/background_list"
+        android:gravity="center|left"
+        >
 
         <TextView
             android:id="@+id/miwok_library"

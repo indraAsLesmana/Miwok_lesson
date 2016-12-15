@@ -30,4 +30,11 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
+
+    <style name="image_style">
+        <item name="android:layout_width">@dimen/image_dimen</item>
+        <item name="android:layout_height">@dimen/image_dimen</item>
+        <item name="android:paddingRight">@dimen/margin_image_tolist</item>
+    </style>
+
 </resources>
