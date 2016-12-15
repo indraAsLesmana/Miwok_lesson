@@ -49,7 +49,7 @@ public class NumbersActivity extends AppCompatActivity {
          9 nine wo’e
          10 ten na’aacha
          * */
-        theData.add(new Word("one", "lutti", R.drawable.number_one));
+        theData.add(new Word("one", "lutti", R.drawable.number_one, R.raw.ringtone));
         theData.add(new Word("two", "otiko", R.drawable.number_two));
         theData.add(new Word("three", "tolookosu", R.drawable.number_three));
         theData.add(new Word("four", "oyyisa", R.drawable.number_four));

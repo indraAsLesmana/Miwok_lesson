@@ -1,6 +1,7 @@
 package com.example.android.miwok.adapter;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.miwok.R;
 
@@ -23,6 +25,9 @@ import com.example.android.miwok.model.Word;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     private int mColorBackground;
+    private MediaPlayer mediaPlayer;
+    private boolean isOnPlay = false;
+    private static final int NO_AUDIO = 0;
 
     public WordAdapter(Context context, ArrayList<Word> words, int color) {
         super(context, 0, words);
@@ -46,18 +51,23 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     R.layout.list_item, parent, false);
         }
 
-        Word wordData = getItem(position);
+        final Word wordData = getItem(position);
 
         TextView defaultWord = (TextView) listItemView.findViewById(R.id.english_library);
         TextView miwokWord = (TextView) listItemView.findViewById(R.id.miwok_library);
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_list);
         LinearLayout mBackground = (LinearLayout) listItemView.findViewById(R.id.background_list);
+        final ImageView playButton = (ImageView) listItemView.findViewById(R.id.play_button);
+        RelativeLayout playButton_layout = (RelativeLayout) listItemView.findViewById(R.id.play_button_layout);
+
 
 
         if (!wordData.hasImage()) {
             imageView.setVisibility(View.GONE);
+            playButton_layout.setVisibility(View.GONE);
         } else {
             imageView.setVisibility(View.VISIBLE);
+            playButton_layout.setVisibility(View.VISIBLE);
             imageView.setImageResource(wordData.getmImageResourceId());
         }
 
@@ -70,6 +80,30 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         defaultWord.setText(wordData.getmDefaultWord());
         miwokWord.setText(wordData.getmMiwokWord());
+
+        /**
+         * @param NO_AUDIO is chek if audio return 0, there is no audio
+         * */
+        if(wordData.getmAudioFile() != NO_AUDIO){
+            mediaPlayer =  MediaPlayer.create(getContext(), wordData.getmAudioFile());
+        }
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(wordData.getmAudioFile() == NO_AUDIO){
+                    Toast.makeText(getContext(), "There's no Audio file", Toast.LENGTH_SHORT).show();
+                }else if (!isOnPlay){
+                    mediaPlayer.start();
+                    isOnPlay = true;
+                    playButton.setImageResource(android.R.drawable.ic_media_pause);
+                }else {
+                    mediaPlayer.pause();
+                    isOnPlay = false;
+                    playButton.setImageResource(android.R.drawable.ic_media_play);
+                }
+            }
+        });
 
         return listItemView;
     }
