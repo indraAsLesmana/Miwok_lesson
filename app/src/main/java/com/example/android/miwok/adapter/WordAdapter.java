@@ -92,11 +92,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
          * @param NO_AUDIO is chek if audio return 0, there is no audio
          * */
         // TODO: how to store audio file not in one variabel, but in one object view
-        if(wordData.getmAudioFile() != NO_AUDIO){
+        /*if(wordData.getmAudioFile() != NO_AUDIO){
             mediaPlayer =  MediaPlayer.create(getContext(), wordData.getmAudioFile());
         }
 
-        playButton.setOnClickListener(new View.OnClickListener() {
+        mBackground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (wordData.getmAudioFile() == NO_AUDIO) {
@@ -113,7 +113,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     }, mediaPlayer.getDuration() + 50);
                 }
             }
-        });
+        });*/
 
         return listItemView;
     }

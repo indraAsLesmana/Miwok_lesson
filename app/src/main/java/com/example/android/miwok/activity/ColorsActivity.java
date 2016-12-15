@@ -15,9 +15,14 @@
  */
 package com.example.android.miwok.activity;
 
+import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.android.miwok.R;
 import com.example.android.miwok.adapter.WordAdapter;
@@ -28,13 +33,15 @@ import java.util.ArrayList;
 public class ColorsActivity extends AppCompatActivity {
 
     private ListView listView;
+    private MediaPlayer mediaPlayer;
+    private static final int NO_AUDIO = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         listView = (ListView) findViewById(R.id.list_data);
-        ArrayList<Word> theData = new ArrayList<>();
+        final ArrayList<Word> theData = new ArrayList<>();
 
         theData.add(new Word("red", "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
         theData.add(new Word("green", "chokokki", R.drawable.color_green, R.raw.color_green));
@@ -48,6 +55,22 @@ public class ColorsActivity extends AppCompatActivity {
         WordAdapter adapter = new WordAdapter(this, theData, R.color.category_colors);
 
         listView.setAdapter(adapter);
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                mediaPlayer = MediaPlayer.create(ColorsActivity.this, theData.get(position).getmAudioFile());
+                if (theData.get(position).getmAudioFile() == NO_AUDIO) {
+                    Toast.makeText(ColorsActivity.this, "There's no Audio file", Toast.LENGTH_SHORT).show();
+                } else if (!mediaPlayer.isPlaying()) { //isPlaying() is MediaPlayer method for check is audio played ?
+                    mediaPlayer.start();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mediaPlayer.stop();
+                        }
+                    }, mediaPlayer.getDuration());
+                }
+            }
+        });
     }
 }

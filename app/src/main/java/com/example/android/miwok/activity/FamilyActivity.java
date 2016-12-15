@@ -15,9 +15,14 @@
  */
 package com.example.android.miwok.activity;
 
+import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,6 +33,8 @@ import com.example.android.miwok.model.Word;
 public class FamilyActivity extends AppCompatActivity {
 
     private ListView listView;
+    private MediaPlayer mediaPlayer;
+    private static final int NO_AUDIO = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +84,7 @@ public class FamilyActivity extends AppCompatActivity {
                 R.raw.family_grandfather
         };
 
-        ArrayList<Word> wordLibrary = new ArrayList<>();
+        final ArrayList<Word> wordLibrary = new ArrayList<>();
         String [] familymemberData = getResources().getStringArray(R.array.family_member);
 
         for (int i = 0; i < familymemberData.length; i++) {
@@ -88,6 +95,23 @@ public class FamilyActivity extends AppCompatActivity {
 
         WordAdapter adapter = new WordAdapter(this, wordLibrary, R.color.category_family);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                mediaPlayer = MediaPlayer.create(FamilyActivity.this, wordLibrary.get(position).getmAudioFile());
+                if (wordLibrary.get(position).getmAudioFile() == NO_AUDIO) {
+                    Toast.makeText(FamilyActivity.this, "There's no Audio file", Toast.LENGTH_SHORT).show();
+                } else if (!mediaPlayer.isPlaying()) { //isPlaying() is MediaPlayer method for check is audio played ?
+                    mediaPlayer.start();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mediaPlayer.stop();
+                        }
+                    }, mediaPlayer.getDuration());
+                }
+            }
+        });
 
     }
 }

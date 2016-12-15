@@ -15,9 +15,14 @@
  */
 package com.example.android.miwok.activity;
 
+import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,15 +32,16 @@ import com.example.android.miwok.model.Word;
 
 public class NumbersActivity extends AppCompatActivity {
 
-    ListView listView;
-
+    private ListView listView;
+    private MediaPlayer mediaPlayer;
+    private static final int NO_AUDIO = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         listView = (ListView) findViewById(R.id.list_data);
 
-        ArrayList<Word> theData = new ArrayList<>();
+        final ArrayList<Word> theData = new ArrayList<>();
 
         /**
          1 one lutti
@@ -63,6 +69,23 @@ public class NumbersActivity extends AppCompatActivity {
         WordAdapter adapter = new WordAdapter(this, theData, R.color.category_numbers);
 
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                mediaPlayer = MediaPlayer.create(NumbersActivity.this, theData.get(position).getmAudioFile());
+                if (theData.get(position).getmAudioFile() == NO_AUDIO) {
+                    Toast.makeText(NumbersActivity.this, "There's no Audio file", Toast.LENGTH_SHORT).show();
+                } else if (!mediaPlayer.isPlaying()) { //isPlaying() is MediaPlayer method for check is audio played ?
+                    mediaPlayer.start();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mediaPlayer.stop();
+                        }
+                    }, mediaPlayer.getDuration());
+                }
+            }
+        });
     }
 
 }
