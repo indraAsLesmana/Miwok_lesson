@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.android.miwok.R;
 
 import java.util.ArrayList;
-import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
 /**

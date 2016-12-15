@@ -83,37 +83,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void arraysTest (){
-        int [] numbers = new int[9];
-        numbers[0] = 1;
-        numbers[1] = 1;
-        numbers[2] = 1;
-        numbers[3] = 1;
-        numbers[4] = 1;
-    }
-
-    private void arraylistMethod(){
-        ArrayList<String> restoureantTry = new ArrayList<>();
-        restoureantTry.add("Morning caffe");
-        restoureantTry.add("BBQ time");
-
-        restoureantTry.remove(2);
-        restoureantTry.size();
-        Log.v(getPackageName(), restoureantTry.size() + restoureantTry.get(1));
-    }
-
-    private void arralistMethod2(){
-        String [] theData = {"one", "two", "three", "four"};
-        ArrayList<String> temp = new ArrayList<>();
-
-        for (String data : theData){
-            temp.add(data);
-        }
-
-        temp.add("six");
-        temp.add("seven");
-
-        Log.v(getPackageName(), "the size now is: " + temp.size());
-    }
 }
