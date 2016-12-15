@@ -2,6 +2,7 @@ package com.example.android.miwok.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,6 @@ import android.widget.TextView;
 import com.example.android.miwok.R;
 
 import java.util.ArrayList;
-
-import com.example.android.miwok.activity.ColorsActivity;
-import com.example.android.miwok.activity.FamilyActivity;
-import com.example.android.miwok.activity.NumbersActivity;
-import com.example.android.miwok.activity.PhrasesActivity;
 import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
@@ -26,14 +22,11 @@ import com.example.android.miwok.model.Word;
  */
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    private int mContextCheck;
+    private int mColorBackground;
 
-    public WordAdapter(Context context, ArrayList<Word> words) {
+    public WordAdapter(Context context, ArrayList<Word> words, int color) {
         super(context, 0, words);
-        if (context instanceof FamilyActivity) mContextCheck = Helper.ACTIVITY_FAMILY_MEMBERS;
-        if (context instanceof ColorsActivity) mContextCheck = Helper.ACTIVITY_COLORS;
-        if (context instanceof NumbersActivity) mContextCheck = Helper.ACTIVITY_NUMBERS;
-        if (context instanceof PhrasesActivity) mContextCheck = Helper.ACTIVITY_PHARASES;
+        mColorBackground = color;
         /**
          * another way to check ho is caller
          * */
@@ -68,25 +61,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
             imageView.setImageResource(wordData.getmImageResourceId());
         }
 
-        switch (mContextCheck) {
-            case Helper.ACTIVITY_NUMBERS:
-                mBackground.setBackgroundColor(getContext().getResources()
-                        .getColor(R.color.category_numbers));
-                break;
-            case Helper.ACTIVITY_COLORS:
-                mBackground.setBackgroundColor(getContext().getResources()
-                        .getColor(R.color.category_colors));
-                break;
-            case Helper.ACTIVITY_FAMILY_MEMBERS:
-                mBackground.setBackgroundColor(getContext().getResources()
-                        .getColor(R.color.category_family));
-                break;
-            case Helper.ACTIVITY_PHARASES:
-                mBackground.setBackgroundColor(getContext().getResources()
-                        .getColor(R.color.category_phrases));
-                break;
-
-        }
+        /**
+         * @param mColorBackground is pasing from all activity as parameter on this word adapter;
+         * @param colorResult is must be converting to get color work
+         * */
+        int colorResult = ContextCompat.getColor(getContext(), mColorBackground);
+        mBackground.setBackgroundColor(colorResult);
 
         defaultWord.setText(wordData.getmDefaultWord());
         miwokWord.setText(wordData.getmMiwokWord());

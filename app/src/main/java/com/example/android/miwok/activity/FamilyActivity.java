@@ -74,7 +74,7 @@ public class FamilyActivity extends AppCompatActivity {
             wordLibrary.add(new Word(splitResult[0], splitResult[1], drawableData[i]));
         }
 
-        WordAdapter adapter = new WordAdapter(this, wordLibrary);
+        WordAdapter adapter = new WordAdapter(this, wordLibrary, R.color.category_family);
         listView.setAdapter(adapter);
 
     }

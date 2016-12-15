@@ -60,7 +60,7 @@ public class NumbersActivity extends AppCompatActivity {
         theData.add(new Word("nine", "wo'e", R.drawable.number_nine));
         theData.add(new Word("ten", "na'aacha", R.drawable.number_ten));
 
-        WordAdapter adapter = new WordAdapter(this, theData);
+        WordAdapter adapter = new WordAdapter(this, theData, R.color.category_numbers);
 
         listView.setAdapter(adapter);
     }
