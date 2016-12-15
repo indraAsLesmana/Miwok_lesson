@@ -1,5 +1,6 @@
 package com.example.android.miwok.model;
 
+
 /**
  * Created by indraaguslesmana on 12/13/16.
  */
