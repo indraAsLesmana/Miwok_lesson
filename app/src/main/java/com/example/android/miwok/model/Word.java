@@ -11,6 +11,7 @@ public class Word {
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     private static final int NO_IMAGE_PROVIDED = 0;
     private int mAudioFile;
+    private boolean mIsPlayed;
     /**
      * this is overloading constructor add new imageResourceid
      * @param mImageResourceId is for imageResourceId from drawable content
@@ -21,6 +22,15 @@ public class Word {
         this.mMiwokWord = mMiwokWord;
         this.mImageResourceId = mImageResourceId;
         this.mAudioFile = audioFile;
+    }
+
+    public Word(String mDefaultWord, String mMiwokWord, int mImageResourceId, int audioFile,
+                boolean isPlayed) {
+        this.mDefaultWord = mDefaultWord;
+        this.mMiwokWord = mMiwokWord;
+        this.mImageResourceId = mImageResourceId;
+        this.mAudioFile = audioFile;
+        mIsPlayed = isPlayed;
     }
 
     public Word(String mDefaultWord, String mMiwokWord, int mImageResourceId) {
@@ -57,5 +67,28 @@ public class Word {
 
     public int getmAudioFile() {
         return mAudioFile;
+    }
+
+    public boolean ismIsPlayed() {
+        return mIsPlayed;
+    }
+
+    public void setmIsPlayed(boolean mIsPlayed) {
+        this.mIsPlayed = mIsPlayed;
+    }
+
+    /**
+     * retrun the string refresentation of {@link Word} Object
+     * this example if you want look the all value of this object with LOG.V for example
+     * this code generate by cliking, control + enter --> toString()
+     * */
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultWord='" + mDefaultWord + '\'' +
+                ", mMiwokWord='" + mMiwokWord + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioFile=" + mAudioFile +
+                '}';
     }
 }

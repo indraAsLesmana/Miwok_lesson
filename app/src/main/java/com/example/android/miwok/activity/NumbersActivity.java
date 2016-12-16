@@ -16,9 +16,9 @@
 package com.example.android.miwok.activity;
 
 import android.media.MediaPlayer;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import com.example.android.miwok.R;
 import com.example.android.miwok.adapter.WordAdapter;
+import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
 
 public class NumbersActivity extends AppCompatActivity {
@@ -66,26 +67,40 @@ public class NumbersActivity extends AppCompatActivity {
         theData.add(new Word("nine", "wo'e", R.drawable.number_nine, R.raw.number_nine));
         theData.add(new Word("ten", "na'aacha", R.drawable.number_ten, R.raw.number_ten));
 
-        WordAdapter adapter = new WordAdapter(this, theData, R.color.category_numbers);
+        final WordAdapter adapter = new WordAdapter(this, theData, R.color.category_numbers);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                mediaPlayer = MediaPlayer.create(NumbersActivity.this, theData.get(position).getmAudioFile());
-                if (theData.get(position).getmAudioFile() == NO_AUDIO) {
-                    Toast.makeText(NumbersActivity.this, "There's no Audio file", Toast.LENGTH_SHORT).show();
-                } else if (!mediaPlayer.isPlaying()) { //isPlaying() is MediaPlayer method for check is audio played ?
+                final Word word = theData.get(position);
+                mediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getmAudioFile());
+                if (word.getmAudioFile() == NO_AUDIO) {
+                    Toast.makeText(NumbersActivity.this, "There's no Audio file",
+                            Toast.LENGTH_SHORT).show();
+                }else {
+                    /**
+                     * "word.setIsPlayed" is helper play boolean, to change view from PLAY to PAUSE
+                     * */
                     mediaPlayer.start();
-                    new Handler().postDelayed(new Runnable() {
+                    word.setmIsPlayed(true);
+                    adapter.notifyDataSetChanged();
+
+                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
-                        public void run() {
+                        public void onCompletion(MediaPlayer mediaPlayer) {
                             mediaPlayer.stop();
+                            Helper.releaseMediaPlayer(mediaPlayer); // is for release alocate memory by mediaVariabel
+                            word.setmIsPlayed(false);
+                            adapter.notifyDataSetChanged();
                         }
-                    }, mediaPlayer.getDuration());
+                    });
                 }
+
+                Log.v(getPackageName(), "data: " + word); // is will log add data from object word
             }
         });
     }
+
 
 }

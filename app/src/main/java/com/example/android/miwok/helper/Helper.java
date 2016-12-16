@@ -1,5 +1,7 @@
 package com.example.android.miwok.helper;
 
+import android.media.MediaPlayer;
+
 import com.example.android.miwok.R;
 import com.example.android.miwok.model.Word;
 
@@ -17,4 +19,11 @@ public class Helper {
     public static final int ACTIVITY_FAMILY_MEMBERS = 1002;
     public static final int ACTIVITY_COLORS = 1003;
     public static final int ACTIVITY_PHARASES = 1004;
+
+    public static void releaseMediaPlayer (MediaPlayer mediaPlayer){
+        if (mediaPlayer != null){
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
 }

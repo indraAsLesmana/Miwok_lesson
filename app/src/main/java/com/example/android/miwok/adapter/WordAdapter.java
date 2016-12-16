@@ -1,8 +1,6 @@
 package com.example.android.miwok.adapter;
 
 import android.content.Context;
-import android.media.MediaPlayer;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -13,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.android.miwok.R;
 
@@ -26,8 +23,6 @@ import com.example.android.miwok.model.Word;
 
 public class WordAdapter extends ArrayAdapter<Word> {
     private int mColorBackground;
-    private MediaPlayer mediaPlayer;
-    private static final int NO_AUDIO = 0;
     private Word wordData;
     private TextView miwokWord;
 
@@ -35,6 +30,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
     private ImageView imageView;
     private LinearLayout mBackground;
     private RelativeLayout playButton_layout;
+    private boolean mIsMediaPlayed;
 
     public WordAdapter(Context context, ArrayList<Word> words, int color) {
         super(context, 0, words);
@@ -67,8 +63,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         final ImageView playButton = (ImageView) listItemView.findViewById(R.id.play_button);
         playButton_layout = (RelativeLayout) listItemView.findViewById(R.id.play_button_layout);
 
-
-
         if (!wordData.hasImage()) {
             imageView.setVisibility(View.GONE);
             playButton_layout.setVisibility(View.GONE);
@@ -88,6 +82,11 @@ public class WordAdapter extends ArrayAdapter<Word> {
         defaultWord.setText(wordData.getmDefaultWord());
         miwokWord.setText(wordData.getmMiwokWord());
 
+        if(wordData.ismIsPlayed()){
+            playButton.setImageResource(android.R.drawable.ic_media_pause);
+        }else {
+            playButton.setImageResource(android.R.drawable.ic_media_play);
+        }
 
         return listItemView;
     }
