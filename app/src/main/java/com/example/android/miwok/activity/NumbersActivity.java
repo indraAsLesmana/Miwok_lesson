@@ -74,6 +74,7 @@ public class NumbersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 final Word word = theData.get(position);
+                mediaPlayer = Helper.releaseMediaPlayer(mediaPlayer);
                 mediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getmAudioFile());
                 if (word.getmAudioFile() == NO_AUDIO) {
                     Toast.makeText(NumbersActivity.this, "There's no Audio file",
@@ -96,11 +97,9 @@ public class NumbersActivity extends AppCompatActivity {
                         }
                     });
                 }
-
+                mediaPlayer = null;
                 Log.v(getPackageName(), "data: " + word); // is will log add data from object word
             }
         });
     }
-
-
 }

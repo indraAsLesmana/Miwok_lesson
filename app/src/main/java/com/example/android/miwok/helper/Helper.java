@@ -20,10 +20,10 @@ public class Helper {
     public static final int ACTIVITY_COLORS = 1003;
     public static final int ACTIVITY_PHARASES = 1004;
 
-    public static void releaseMediaPlayer (MediaPlayer mediaPlayer){
+    public static MediaPlayer releaseMediaPlayer (MediaPlayer mediaPlayer){
         if (mediaPlayer != null){
             mediaPlayer.release();
-            mediaPlayer = null;
         }
+        return null;
     }
 }
