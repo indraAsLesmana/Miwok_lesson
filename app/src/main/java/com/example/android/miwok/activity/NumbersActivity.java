@@ -34,7 +34,7 @@ import com.example.android.miwok.model.Word;
 public class NumbersActivity extends AppCompatActivity {
 
     private ListView listView;
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mMediaPlayer;
     private static final int NO_AUDIO = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +74,8 @@ public class NumbersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 final Word word = theData.get(position);
-                mediaPlayer = Helper.releaseMediaPlayer(mediaPlayer);
-                mediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getmAudioFile());
+                mMediaPlayer = Helper.clearMediaplayer(mMediaPlayer);
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getmAudioFile());
                 if (word.getmAudioFile() == NO_AUDIO) {
                     Toast.makeText(NumbersActivity.this, "There's no Audio file",
                             Toast.LENGTH_SHORT).show();
@@ -83,23 +83,27 @@ public class NumbersActivity extends AppCompatActivity {
                     /**
                      * "word.setIsPlayed" is helper play boolean, to change view from PLAY to PAUSE
                      * */
-                    mediaPlayer.start();
+                    mMediaPlayer.start();
                     word.setmIsPlayed(true);
                     adapter.notifyDataSetChanged();
 
-                    mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mediaPlayer) {
-                            mediaPlayer.stop();
-                            Helper.releaseMediaPlayer(mediaPlayer); // is for release alocate memory by mediaVariabel
+                            mMediaPlayer = Helper.clearMediaplayer(mMediaPlayer);// is for release alocate memory by mediaVariabel
                             word.setmIsPlayed(false);
                             adapter.notifyDataSetChanged();
                         }
                     });
                 }
-                mediaPlayer = null;
                 Log.v(getPackageName(), "data: " + word); // is will log add data from object word
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mMediaPlayer = Helper.clearMediaplayer(mMediaPlayer);
     }
 }

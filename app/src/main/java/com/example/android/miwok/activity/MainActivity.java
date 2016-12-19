@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.miwok.R;
+import com.example.android.miwok.helper.Helper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -88,5 +89,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(phrasesIntent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Helper.showLogV(getPackageName(), "OnStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Helper.showLogV(getPackageName(), "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Helper.showLogV(getPackageName(), "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Helper.showLogV(getPackageName(), "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Helper.showLogV(getPackageName(), "onDestroy");
     }
 }

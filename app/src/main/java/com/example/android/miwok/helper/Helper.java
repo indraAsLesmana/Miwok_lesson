@@ -1,6 +1,9 @@
 package com.example.android.miwok.helper;
 
+import android.content.Context;
 import android.media.MediaPlayer;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.android.miwok.R;
 import com.example.android.miwok.model.Word;
@@ -26,4 +29,29 @@ public class Helper {
         }
         return null;
     }
+
+    /**
+     * create Toast for reused dinamicly
+     * */
+    public static void showToast(Context context, String message){
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * create Log v for reused dynamicly
+     * */
+    public static void showLogV (String stringContext, String message){
+        Log.v(stringContext, message);
+    }
+    /**
+     * clear mediaPlayer memory
+     * */
+    public static MediaPlayer clearMediaplayer (MediaPlayer mediaPlayer){
+        if (mediaPlayer != null){
+            mediaPlayer.release();
+        }
+        return null;
+    }
+
 }
+
