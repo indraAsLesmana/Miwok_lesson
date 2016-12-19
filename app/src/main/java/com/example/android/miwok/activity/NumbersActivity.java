@@ -81,7 +81,7 @@ public class NumbersActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 }else {
                     /**
-                     * "word.setIsPlayed" is helper play boolean, to change view from PLAY to PAUSE
+                     * "word.setIsPlayed" is helper play boolean, to change button view from PLAY to PAUSE
                      * */
                     mMediaPlayer.start();
                     word.setmIsPlayed(true);

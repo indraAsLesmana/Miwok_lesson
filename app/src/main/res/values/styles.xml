@@ -29,6 +29,8 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item> <!--make ripple effect-->
+        <item name="android:color">?android:colorControlHighlight</item> <!--make ripple effect color same as current color-->
     </style>
 
     <style name="image_style">

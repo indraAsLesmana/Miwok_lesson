@@ -89,9 +89,6 @@ public class PhrasesActivity extends AppCompatActivity {
                 final Word word = theData.get(position);
                 mMediaPlayer = Helper.clearMediaplayer(mMediaPlayer);
 
-                /**
-                 * this
-                 * */
                 // Request audio focus for playback
                 int result = mAudioManager.requestAudioFocus(onAudioFocusChangeListener,
                         AudioManager.STREAM_MUSIC,              // Use the music stream.
@@ -105,7 +102,7 @@ public class PhrasesActivity extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }else {
                         /**
-                         * "word.setIsPlayed" is helper play boolean, to change view from PLAY to PAUSE
+                         * "word.setIsPlayed" is helper play boolean, to change button view from PLAY to PAUSE
                          * */
                         mMediaPlayer.start();
                         word.setmIsPlayed(true);

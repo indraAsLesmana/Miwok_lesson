@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:minHeight="@dimen/list_hight">
+    android:minHeight="@dimen/list_hight"
+    android:background="?android:attr/selectableItemBackground"
+    >
 
     <ImageView
         android:id="@+id/image_list"
@@ -20,21 +22,20 @@
             android:layout_weight="8"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center|left">
+            android:gravity="center|left"
+            android:background="?android:attr/selectableItemBackground">
 
             <TextView
                 android:id="@+id/miwok_library"
                 style="@style/text_item_style"
                 android:textStyle="bold"
-                android:text="@string/notilu"
-                />
+                android:text="@string/notilu" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:layout_margin="2dp"
-                android:background="@color/image_background"
-                />
+                android:background="@color/image_background" />
 
             <TextView
                 android:id="@+id/english_library"
@@ -53,9 +54,9 @@
 
             <ImageView
                 android:id="@+id/play_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_media_play"
+                android:layout_width="@dimen/button_play"
+                android:layout_height="@dimen/button_play"
+                android:src="@drawable/ic_play_arrow_white_24dp"
                 android:layout_centerInParent="true"
                 android:layout_marginRight="@dimen/item_padding"
                 />

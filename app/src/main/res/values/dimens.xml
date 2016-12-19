@@ -22,4 +22,6 @@
     <dimen name="image_dimen">88dp</dimen>
     <dimen name="margin_image_tolist">16dp</dimen>
     <dimen name="list_hight">88dp</dimen>
+    <dimen name="button_play">24dp</dimen>
+
 </resources>
