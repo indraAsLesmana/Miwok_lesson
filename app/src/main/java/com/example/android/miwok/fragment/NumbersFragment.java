@@ -6,7 +6,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.android.miwok.R;
-import com.example.android.miwok.activity.NumbersActivity;
 import com.example.android.miwok.adapter.WordAdapter;
 import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
@@ -59,7 +57,7 @@ public class NumbersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.activity_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_listview, container, false);
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
         listView = (ListView) rootView.findViewById(R.id.list_data);

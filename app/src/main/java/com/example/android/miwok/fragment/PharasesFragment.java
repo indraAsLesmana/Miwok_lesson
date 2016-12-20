@@ -11,11 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.android.miwok.R;
-import com.example.android.miwok.activity.PhrasesActivity;
 import com.example.android.miwok.adapter.WordAdapter;
 import com.example.android.miwok.helper.Helper;
 import com.example.android.miwok.model.Word;
@@ -59,7 +57,7 @@ public class PharasesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.activity_list, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_listview, container, false);
 
         listView = (ListView) rootView.findViewById(R.id.list_data);
 
