@@ -37,4 +37,8 @@
 
     <!-- Background for image-->
     <color name="image_background">#fff7DA</color>
+
+    <!-- unselect text color-->
+    <color name="unselect_textcolor">#A8A19E</color>
+
 </resources>
