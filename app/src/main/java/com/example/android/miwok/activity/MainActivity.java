@@ -17,6 +17,7 @@ package com.example.android.miwok.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.miwok.R;
+import com.example.android.miwok.adapter.SimpleFragmentPagerAdapter;
 import com.example.android.miwok.helper.Helper;
 
 import java.text.ParseException;
@@ -42,7 +44,13 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        TextView numbers = (TextView) findViewById(R.id.numbers);
+        ViewPager mMain_Pagger = (ViewPager) findViewById(R.id.main_pagger);
+
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
+
+        mMain_Pagger.setAdapter(adapter);
+
+        /*TextView numbers = (TextView) findViewById(R.id.numbers);
 
         numbers.setOnClickListener(new OnClickListener() {
             // The code in this method will be executed when the numbers category is clicked on.
@@ -88,36 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 // Start the new activity
                 startActivity(phrasesIntent);
             }
-        });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Helper.showLogV(getPackageName(), "OnStart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Helper.showLogV(getPackageName(), "onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Helper.showLogV(getPackageName(), "onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Helper.showLogV(getPackageName(), "onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Helper.showLogV(getPackageName(), "onDestroy");
+        });*/
     }
 }

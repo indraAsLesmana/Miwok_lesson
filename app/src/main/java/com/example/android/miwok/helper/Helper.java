@@ -18,10 +18,10 @@ public class Helper {
     /**
      * this for identify activty caller
      * */
-    public static final int ACTIVITY_NUMBERS = 1001;
-    public static final int ACTIVITY_FAMILY_MEMBERS = 1002;
-    public static final int ACTIVITY_COLORS = 1003;
-    public static final int ACTIVITY_PHARASES = 1004;
+    public static final int FRAGMENT_NUMBERS = 0;
+    public static final int FRAGMENT_FAMILY_MEMBERS = 1;
+    public static final int FRAGMENT_COLORS = 2;
+    public static final int FRAGMENT_PHARASES = 3;
 
 
     /**
