@@ -14,7 +14,7 @@ import com.example.android.miwok.helper.Helper;
  * Created by indraaguslesmana on 12/19/16.
  */
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter{
-    final int PAGE_COUNT = 4;
+    private static final int PAGE_COUNT = 4;
     private String tabTitles[] = new String[] { "Number", "Family", "Color", "Pharases" };
 
     public SimpleFragmentPagerAdapter(FragmentManager fm) {
