@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPager mMain_Pagger = (ViewPager) findViewById(R.id.main_pagger);
 
-        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(
+                getSupportFragmentManager(), this);
 
         mMain_Pagger.setAdapter(adapter);
 
