@@ -60,6 +60,7 @@ public class FamilyFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.activity_list, container, false);
 
+        mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
         listView = (ListView) rootView.findViewById(R.id.list_data);
         /** library ---
          * 1father, әpә
