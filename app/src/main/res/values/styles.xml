@@ -18,6 +18,14 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryDark">@color/primary_dark_color</item>
+        <item name="actionBarStyle">@style/removeShadow</item>
+    </style>
+
+    <!-- remove shadow below action bar -->
+    <style name="removeShadow" parent="style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <!-- <item name="android:elevation">0dp</item> -->
+        <!-- Support library compatibility -->
+        <item name="elevation">0dp</item>
     </style>
 
     <!-- Style for a category of vocabulary words -->
